@@ -122,7 +122,7 @@ const FrameComponent3: React.FC<{ className?: string }> = ({ className = "" }) =
                                     </div>
                                 </div>
                             </div>
-                            <Night onClick={() => handleModeChange("night")} ></Night>
+                      
                             <div
                                 className={`${styles.warmbt} ${mode === "warm" ? styles.active : ""}`}
                                 onClick={() => handleModeChange("warm")}
