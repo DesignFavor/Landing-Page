@@ -1,11 +1,47 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./form-container.module.css";
 
+
+// Define types if needed
 export type FormContainerType = {
   className?: string;
 };
 
 const FormContainer: React.FC<FormContainerType> = ({ className = "" }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const setupViewer = async () => {
+      const { ViewerApp, addBasePlugins, FileTransferPlugin } = await import('webgi');
+
+      if (canvasRef.current) {
+        const viewer = new ViewerApp({ canvas: canvasRef.current });
+
+        try {
+          await addBasePlugins(viewer);
+          await viewer.addPlugin(FileTransferPlugin);
+          
+
+          // Load the GLB model
+          await viewer.load("public\assets\Artemide.glb");
+
+          // If you need to add additional setup, do it here
+        } catch (error) {
+          console.error("Error setting up WebGI viewer:", error);
+        }
+      } else {
+        console.error('Canvas element not found');
+      }
+    };
+
+    setupViewer();
+
+    // Cleanup if needed
+    return () => {
+      // You may need to add cleanup code here, if necessary
+    };
+  }, []);
+
   return (
     <section className={[styles.formContainer, className].join(" ")}>
       <div className={styles.frameParent}>
@@ -47,13 +83,9 @@ const FormContainer: React.FC<FormContainerType> = ({ className = "" }) => {
           </div>
         </div>
       </div>
-      {/* Add the iframe here */}
-      <div style={{ position: "absolute", width: "100%", height: "100vh", top: "0", zIndex: 1 }}>
-        <iframe
-          src="https://vm8ndt-5173.csb.app/"
-          style={{ width: "100%", height: "100%", border: "none" }}
-          title="Background Content"
-        ></iframe>
+      {/* WebGi Viewer */}
+      <div style={{ position: "absolute", width: "100%", height: "100vh", top: "0", left: "0", zIndex: "-1" }}>
+        <canvas ref={canvasRef} style={{ width: "100%", height: "100%" }} />
       </div>
     </section>
   );

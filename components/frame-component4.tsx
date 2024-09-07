@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import React from "react";
 import styles from "./frame-component4.module.css";
 import Image from "next/image";
-import Seets from "../public/Seetes.png";
+import Seets from "../public/Seetes.jpg";
 
 export type FrameComponent4Type = {
   className?: string;

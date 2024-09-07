@@ -159,7 +159,7 @@ const FrameComponent3: React.FC<{ className?: string }> = ({ className = "" }) =
                                 />
                             </div>
                         </div>
-                    </div>
+                    </div>S
                 </div>
                 <div className={styles.dayNightSelectorInner}>
                     <img

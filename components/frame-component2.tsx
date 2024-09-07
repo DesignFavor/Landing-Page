@@ -40,24 +40,39 @@ const FrameComponent2: NextPage<FrameComponent2Type> = ({ className = "" }) => {
           <div className={styles.phoneField}>
             <div className={styles.emailAddressParent}>
               <div className={styles.emailAddress}>Email Address</div>
-              <div className={styles.phoneInput}>
-                <div className={styles.rectangleParent}>
-                  <div className={styles.frameChild} />
-                  <div className={styles.enterEmailAddress}>
-                    Enter email address...
-                  </div>
-                </div>
-                <div className={styles.message}>Message</div>
-              </div>
+              <TextField
+                className={styles.emailInput}
+                placeholder="Enter email address..."
+                variant="outlined"
+                type="email"
+                sx={{
+                  "& fieldset": { borderColor: "#b2b2b2" },
+                  "& .MuiInputBase-root": {
+                    height: "50px",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                  },
+                  "& .MuiInputBase-input": { color: "#717079" },
+                }}
+              />
             </div>
             <div className={styles.emailAddressParent}>
               <div className={styles.phoneNumber}>Phone number</div>
-              <div className={styles.rectangleGroup}>
-                <div className={styles.frameChild} />
-                <div className={styles.enterEmailAddress}>
-                  Enter phone number...
-                </div>
-              </div>
+              <TextField
+                className={styles.phoneInput}
+                placeholder="Enter phone number..."
+                variant="outlined"
+                type="tel"
+                sx={{
+                  "& fieldset": { borderColor: "#b2b2b2" },
+                  "& .MuiInputBase-root": {
+                    height: "50px",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                  },
+                  "& .MuiInputBase-input": { color: "#717079" },
+                }}
+              />
             </div>
           </div>
           <textarea

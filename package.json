@@ -17,7 +17,7 @@
     "react-router-dom": "^6.22.3",
     "three": "^0.168.0",
     "three-stdlib": "^2.32.2",
-    "webgi": "https://dist.pixotronics.com/webgi/runtime/bundle-0.9.15.tgz"
+    "webgi": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.42",
