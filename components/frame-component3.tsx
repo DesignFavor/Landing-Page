@@ -145,6 +145,7 @@ const FrameComponent3: React.FC<{ className?: string }> = ({ className = "" }) =
                     <div className={styles.themeSelectionInner}>
                         <div className={styles.inziaParent}>
                             <div className={styles.inzia}>INZIA</div>
+                           
                             <div className={styles.vectorParent}>
                                 <img
                                     className={styles.vectorIcon4}
@@ -156,10 +157,12 @@ const FrameComponent3: React.FC<{ className?: string }> = ({ className = "" }) =
                                     loading="lazy"
                                     alt=""
                                     src="/frame-1@2x.png"
+
                                 />
+                                
                             </div>
                         </div>
-                    </div>S
+                    </div>
                 </div>
                 <div className={styles.dayNightSelectorInner}>
                     <img
